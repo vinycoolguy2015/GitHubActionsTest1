@@ -18,7 +18,7 @@ provider "aws" {
 
 module "bootstrap" {
   source                      = "./modules/bootstrap"
-  name_of_s3_bucket           = "terraform-gitops-viny-1989"
+  name_of_s3_bucket           = "gitops-viny-1989"
   dynamo_db_table_name        = "aws-locks"
   iam_user_name               = "GitHubActionsIamUser"
   ado_iam_role_name           = "GitHubActionsIamRole"
