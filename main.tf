@@ -2,7 +2,7 @@
 terraform {
   required_version = ">=0.12.13"
   backend "s3" {
-   bucket         = "terraform-gitops-viny-1989"
+   bucket         = "gitops-viny-1989"
    key            = "terraform.tfstate"
    region         = "us-east-1"
    dynamodb_table = "aws-locks"
