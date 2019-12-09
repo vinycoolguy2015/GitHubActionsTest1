@@ -28,7 +28,7 @@ module "bootstrap" {
 
 # Build the VPC
 resource "aws_vpc" "vpc" {
-  cidr_block           = "10.5.0.0/16"
+  cidr_block           = "10.6.0.0/16"
   instance_tenancy     = "default"
 
   tags = {
