@@ -2,7 +2,7 @@
 terraform {
   required_version = ">=0.12.13"
   backend "s3" {
-   bucket         = "terraform-gitops-viny-1989"
+   bucket         = "terraform-gitops-viny-1990"
    key            = "terraform.tfstate"
    region         = "us-east-1"
    dynamodb_table = "aws-locks"
@@ -16,6 +16,15 @@ provider "aws" {
   version = "~> 2.36.0"
 }
 
+module "bootstrap" {
+  source                      = "./modules/bootstrap"
+  name_of_s3_bucket           = "terraform-gitops-viny-1989"
+  dynamo_db_table_name        = "aws-locks"
+  iam_user_name               = "GitHubActionsIamUser"
+  ado_iam_role_name           = "GitHubActionsIamRole"
+  aws_iam_policy_permits_name = "GitHubActionsIamPolicyPermits"
+  aws_iam_policy_assume_name  = "GitHubActionsIamPolicyAssume"
+}
 
 # Build the VPC
 resource "aws_vpc" "vpc" {
